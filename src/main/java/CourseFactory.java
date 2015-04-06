@@ -7,8 +7,20 @@ public class CourseFactory {
         JSONObject course = new JSONObject();
         Elements elements = element.getElementsByTag("td");
 
-        course.put("course", elements.get(0).text());
-        course.put("courseName", elements.get(1).text());
+        String id = elements.get(0).text();
+        course.put("id", id);
+
+        JSONObject courseDetails = new JSONObject();
+        String department = id.split("-")[0].replaceAll("[0-9]", "");
+        courseDetails.put("department", department);
+        String number = id.split("-")[0].replaceAll("[A-Z]", "");
+        courseDetails.put("number", number);
+        String section = id.split("-")[1];
+        courseDetails.put("section", section);
+        courseDetails.put("name", elements.get(1).text());
+        course.put("course", courseDetails);
+
+
         course.put("instructor", elements.get(2).text());
 
         JSONObject hours = new JSONObject();
