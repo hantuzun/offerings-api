@@ -20,7 +20,6 @@ public class CourseFactory {
         courseDetails.put("name", elements.get(1).text().trim());
         course.put("course", courseDetails);
 
-
         course.put("instructor", elements.get(2).text().trim());
 
         JSONObject hours = new JSONObject();

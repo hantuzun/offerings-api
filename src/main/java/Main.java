@@ -29,5 +29,17 @@ public class Main {
                 return "The server encountered an unexpected condition which prevented it from fulfilling the request.";
             }
         });
+
+        get("/:courseCode/:courseNumber/:sectionNumber", (request, response) -> {
+            try {
+                JSONArray courses = SectionNumber.get(request.params("courseCode"), request.params("courseNumber"), request.params("sectionNumber"));
+                response.status(200);
+                return courses.toString(1);
+            } catch (Exception e) {
+                e.printStackTrace();
+                response.status(500);
+                return "The server encountered an unexpected condition which prevented it from fulfilling the request.";
+            }
+        });
     }
 }
