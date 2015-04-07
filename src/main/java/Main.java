@@ -1,9 +1,12 @@
 import org.json.JSONArray;
 
 import static spark.Spark.get;
+import static spark.SparkBase.port;
 
 public class Main {
     public static void main(String[] args) {
+        port(Integer.parseInt(System.getenv().get("PORT")));
+
         System.setProperty("javax.net.ssl.trustStore", "src/main/resources/stars.jks");
 
         get("/:courseCode", (request, response) -> {
