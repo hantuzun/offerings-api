@@ -1,6 +1,8 @@
 # offerings-api
 An unofficial API for Bilkent University course offerings. Returns JSON array of courses. Gets the data as HTML from: https://stars.bilkent.edu.tr/homepage/plain_offerings.
 
+[![Build Status](https://api.travis-ci.org/emrehan/offerings-api.png)](https://api.travis-ci.org/emrehan/offerings-api)
+
 An example response:
 ```json
 [{
