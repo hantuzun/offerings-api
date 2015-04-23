@@ -3,6 +3,7 @@ An unofficial API for Bilkent University course offerings. Returns JSON array of
 
 [![Build Status](https://api.travis-ci.org/emrehan/offerings-api.png)](https://api.travis-ci.org/emrehan/offerings-api)
 [![Dependency Status](https://www.versioneye.com/user/projects/553502477f43bc60fe000002/badge.svg?style=flat)](https://www.versioneye.com/user/projects/553502477f43bc60fe000002)
+![Heroku Status](http://heroku-badge.herokuapp.com/?app=offerings&root=cs)
 
 An example response:
 ```json
