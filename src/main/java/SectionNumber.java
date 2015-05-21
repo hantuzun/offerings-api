@@ -1,4 +1,5 @@
 import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 public class SectionNumber {
@@ -6,11 +7,15 @@ public class SectionNumber {
         JSONArray courses = CourseCode.get(courseCode);
         JSONArray selectedCourses = new JSONArray();
         for (int i = 0; i < courses.length(); i++) {
-            JSONObject course = courses.getJSONObject(i);
-            if (course.getJSONObject("course").getString("number").equals(courseNumber)) {
-                if (course.getJSONObject("course").getString("section").equals(sectionNumber)) {
-                    selectedCourses.put(course);
+            try {
+                JSONObject course = courses.getJSONObject(i);
+                if (course.getJSONObject("course").getString("number").equals(courseNumber)) {
+                    if (course.getJSONObject("course").getString("section").equals(sectionNumber)) {
+                        selectedCourses.put(course);
+                    }
                 }
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
         }
         return selectedCourses;
