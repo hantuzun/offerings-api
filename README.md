@@ -5,6 +5,7 @@ An unofficial API for Bilkent University course offerings. Returns JSON array of
 [![Dependency Status](https://www.versioneye.com/user/projects/553502477f43bc60fe000002/badge.svg?style=flat)](https://www.versioneye.com/user/projects/553502477f43bc60fe000002)
 ![Heroku Status](http://heroku-badge.herokuapp.com/?app=offerings&root=cs)
 
+
 An example response:
 ```json
 [{
@@ -55,8 +56,20 @@ Returns a JSON array of the section of the course offered in the current semeste
 * https://offerings.herokuapp.com/cs/101/3
 * https://offerings.herokuapp.com/math/101/1
 
+
+### Deploy Instructions
+* Pull
+* Make changes
+* Build and install the project: `mvn clean install`
+* Try the application locally using Foreman: `foreman start web`
+* Commit
+* Deploy on Heroku: `git push heroku master`
+* Push here
+
+
 ### Contribution
-Get in touch or open a pull request. Indeed, I've written the API in Java to welcome contributions.
+The API is written in Java to welcome contributions from Bilkent students. Get in touch or open a pull request following [Aaron's git workflow](https://github.com/asmeurer/git-workflow).
+
 
 ### Licence
 MIT License.
