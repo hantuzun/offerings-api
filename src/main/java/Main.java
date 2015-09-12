@@ -13,6 +13,19 @@ public class Main {
 
         System.setProperty("javax.net.ssl.trustStore", "src/main/resources/stars.jks");
 
+        get("/", "application/json", (request, response) -> {
+            try {
+                JSONObject courses = AllCourses.get();
+                response.status(200);
+                response.type("application/json");
+                return courses;
+            } catch (Exception e) {
+                e.printStackTrace();
+                response.status(500);
+                return "The server encountered an unexpected condition which prevented it from fulfilling the request.";
+            }
+        });
+
         get("/:courseCode", "application/json", (request, response) -> {
             try {
                 JSONObject courses = CourseCode.get(request.params("courseCode"));

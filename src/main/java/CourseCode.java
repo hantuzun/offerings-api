@@ -9,13 +9,15 @@ public class CourseCode {
 
         Elements rows = CourseCodeTableCrawler.get(courseCode);
 
-        for (Element row : rows.subList(2, rows.size())) {
-            JSONObject course = CourseFactory.create(row);
-            try {
-                String id = (String) course.keys().next();
-                courses.put(id, course.getJSONObject(id));
-            } catch (JSONException e) {
-                e.printStackTrace();
+        if (rows != null && rows.size() > 2) {
+            for (Element row : rows.subList(2, rows.size())) {
+                JSONObject course = CourseFactory.create(row);
+                try {
+                    String id = (String) course.keys().next();
+                    courses.put(id, course.getJSONObject(id));
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
             }
         }
 

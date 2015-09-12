@@ -11,9 +11,14 @@ public class CourseCodeTableCrawler {
 
         try {
             Document doc = Jsoup.parse(new URL(url), 10000);
-            Element table = doc.getElementById("poTable");
-            Elements rows = table.getElementsByTag("tr");
-            return rows;
+
+            if (doc.getElementById("poDiv").ownText().equals("no course")) {
+                return null;
+            } else {
+                Element table = doc.getElementById("poTable");
+                Elements rows = table.getElementsByTag("tr");
+                return rows;
+            }
         } catch (Exception e) {
             e.printStackTrace();
             return new Elements();
