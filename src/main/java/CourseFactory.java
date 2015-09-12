@@ -6,27 +6,27 @@ import org.jsoup.select.Elements;
 public class CourseFactory {
     public static JSONObject create(Element element) {
         try {
-            JSONObject course = new JSONObject();
             Elements elements = element.getElementsByTag("td");
 
             String id = elements.get(0).text().trim();
-            course.put("id", id);
+
+            JSONObject course = new JSONObject();
 
             JSONObject courseDetails = new JSONObject();
             String department = id.split("-")[0].replaceAll("[0-9]", "").trim();
-            courseDetails.put("department", department);
             String number = id.split("-")[0].replaceAll("[A-Z]", "").trim();
-            courseDetails.put("number", number);
             String section = id.split("-")[1].trim();
+            courseDetails.put("department", department);
+            courseDetails.put("number", number);
             courseDetails.put("section", section);
             courseDetails.put("name", elements.get(1).text().trim());
-            course.put("course", courseDetails);
-
-            course.put("instructor", elements.get(2).text().trim());
+            courseDetails.put("instructor", elements.get(2).text().trim());
+            course.put("details", courseDetails);
 
             JSONObject hours = new JSONObject();
             hours.put("lecture", elements.get(3).text().trim());
             hours.put("lab", elements.get(4).text().trim());
+            hours.put("schedule", elements.get(14).text().trim());
             course.put("hours", hours);
 
             JSONObject credits = new JSONObject();
@@ -39,9 +39,10 @@ public class CourseFactory {
             quotas.put("available", elements.get(12).text().split(" ")[0].trim());
             course.put("quotas", quotas);
 
-            course.put("schedule", elements.get(14).text().trim());
+            JSONObject courseObject = new JSONObject();
+            courseObject.put(id, course);
 
-            return course;
+            return courseObject;
         } catch (JSONException e) {
             e.printStackTrace();
             return null;

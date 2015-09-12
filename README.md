@@ -8,29 +8,30 @@ An unofficial API for Bilkent University course offerings. Returns JSON array of
 
 An example response:
 ```json
-[{
-    "id": "CS 101-1",
-    "instructor": "H. Altay Güvenir  ",
-    "course": {
-        "number": "101",
-        "name": "Algorithms and Programming I",
-        "section": "1",
-        "department": "CS"
-    },
-    "quotas": {
-        "total": "60",
-        "available": "0"
-    },
-    "credits": {
-        "ects": "7",
-        "bilkent": "4"
-    },
-    "hours": {
-        "lecture": "3",
-        "lab": "4"
-    },
-    "schedule": "Mon 08:40-09:30 B-Z01[S] Mon 09:40-10:30 B-Z01 Tue 15:40-17:30 B-303[L] Wed 10:40-12:30 B-Z01"
-}]
+{
+    "CS 101-1": {
+         "details": {
+             "name": "Algorithms and Programming I",
+             "instructor": "David Davenport   ",
+             "department": "CS",
+             "number": "101",
+             "section": "1"
+         }
+        "hours": {
+            "lecture": "3",
+            "lab": "4"
+            "schedule": "Mon08:40-10:30 B-Z08 Tue13:40-17:30 B-201[L] Wed10:40-11:30 B-Z08 Wed11:40-12:30 B-Z08[S]",
+        },
+        "quotas": {
+            "total": "74",
+            "available": "0"
+        },
+        "credits": {
+            "ects": "7",
+            "bilkent": "4"
+        }
+    }
+}
 ```
 
 

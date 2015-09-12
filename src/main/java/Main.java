@@ -1,4 +1,8 @@
 import org.json.JSONArray;
+import org.json.JSONObject;
+
+import java.util.HashMap;
+import java.util.Map;
 
 import static spark.Spark.get;
 import static spark.SparkBase.port;
@@ -9,11 +13,12 @@ public class Main {
 
         System.setProperty("javax.net.ssl.trustStore", "src/main/resources/stars.jks");
 
-        get("/:courseCode", (request, response) -> {
+        get("/:courseCode", "application/json", (request, response) -> {
             try {
-                JSONArray courses = CourseCode.get(request.params("courseCode"));
+                JSONObject courses = CourseCode.get(request.params("courseCode"));
                 response.status(200);
-                return courses.toString(1);
+                response.type("application/json");
+                return courses;
             } catch (Exception e) {
                 e.printStackTrace();
                 response.status(500);
@@ -23,9 +28,10 @@ public class Main {
 
         get("/:courseCode/:courseNumber", (request, response) -> {
             try {
-                JSONArray courses = CourseNumber.get(request.params("courseCode"), request.params("courseNumber"));
+                JSONObject courses = CourseNumber.get(request.params("courseCode"), request.params("courseNumber"));
                 response.status(200);
-                return courses.toString(1);
+                response.type("application/json");
+                return courses;
             } catch (Exception e) {
                 e.printStackTrace();
                 response.status(500);
@@ -35,9 +41,10 @@ public class Main {
 
         get("/:courseCode/:courseNumber/:sectionNumber", (request, response) -> {
             try {
-                JSONArray courses = SectionNumber.get(request.params("courseCode"), request.params("courseNumber"), request.params("sectionNumber"));
+                JSONObject courses = SectionNumber.get(request.params("courseCode"), request.params("courseNumber"), request.params("sectionNumber"));
                 response.status(200);
-                return courses.toString(1);
+                response.type("application/json");
+                return courses;
             } catch (Exception e) {
                 e.printStackTrace();
                 response.status(500);
