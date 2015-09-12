@@ -39,6 +39,12 @@ An example response:
 https://offerings.herokuapp.com/cs
 
 ### Endpoints
+##### /
+Returns all the courses.
+* https://offerings.herokuapp.com/
+
+ps. Use responsibly.
+
 ##### /:dept
 Returns a JSON array of all courses offered in the current semester. 
 
@@ -64,12 +70,13 @@ Returns a JSON array of the section of the course offered in the current semeste
 * Build and install the project: `mvn clean install`
 * Try the application locally using Foreman: `foreman start web`
 * Commit
-* Deploy on Heroku: `git push heroku master`
 * Push here
+* Deploy on Heroku: `git push heroku master`
 
 
 ### Contribution
-The API is written in Java to welcome contributions from Bilkent students. Get in touch or open a pull request following [Aaron's git workflow](https://github.com/asmeurer/git-workflow).
+The API is written in Java to welcome contributions from Bilkent students.
+Get in touch or open a pull request following [Aaron's git workflow](https://github.com/asmeurer/git-workflow).
 
 
 ### Licence
