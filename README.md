@@ -16,7 +16,7 @@ An example response:
              "department": "CS",
              "number": "101",
              "section": "1"
-         }
+         },
         "hours": {
             "lecture": "3",
             "lab": "4",
