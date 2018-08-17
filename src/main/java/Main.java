@@ -9,9 +9,9 @@ import static spark.SparkBase.port;
 
 public class Main {
     public static void main(String[] args) {
-        port(Integer.parseInt(System.getenv().get("PORT")));
+        port(Integer.parseInt(System.getenv().getOrDefault("PORT", "3000")));
 
-        System.setProperty("javax.net.ssl.trustStore", "src/main/resources/stars.jks");
+        System.setProperty("javax.net.ssl.trustStore", Main.class.getClassLoader().getResource("stars.jks").getFile());
 
         get("/", "application/json", (request, response) -> {
             try {

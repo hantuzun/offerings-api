@@ -16,11 +16,11 @@ An example response:
              "department": "CS",
              "number": "101",
              "section": "1"
-         }
+         },
         "hours": {
             "lecture": "3",
-            "lab": "4"
-            "schedule": "Mon08:40-10:30 B-Z08 Tue13:40-17:30 B-201[L] Wed10:40-11:30 B-Z08 Wed11:40-12:30 B-Z08[S]",
+            "lab": "4",
+            "schedule": "Mon08:40-10:30 B-Z08 Tue13:40-17:30 B-201[L] Wed10:40-11:30 B-Z08 Wed11:40-12:30 B-Z08[S]"
         },
         "quotas": {
             "total": "74",
@@ -77,6 +77,15 @@ Returns a JSON array of the section of the course offered in the current semeste
 ### Contribution
 The API is written in Java to welcome contributions from Bilkent students.
 Get in touch or open a pull request following [Aaron's git workflow](https://github.com/asmeurer/git-workflow).
+
+#### Certification
+Bilkent Stars certificate seems to be ending soon. (8/21/2017)
+* To renew, read https://stackoverflow.com/questions/7744075/how-to-connect-via-https-using-jsoup
+
+
+### Contributors
+* Emrehan Tüzün, http://tuzun.co
+* Selim Fırat Yılmaz, http://github.com/mrsfy
 
 
 ### Licence
